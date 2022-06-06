@@ -82,8 +82,11 @@ let questions = [
 ];
 
 let rightAnsweredQuestions = 0;
-
 let currentQuestion = 0;
+
+let rightAnswerSound = new Audio('sounds/rightAnswer.mp3');
+let wrongAnswerSound = new Audio('sounds/wrongAnswer.mp3');
+let endingSound = new Audio('sounds/cheering.mp3');
 
 function initialize() {
     document.getElementById('remainingQuestions').innerHTML = questions.length;
@@ -93,48 +96,54 @@ function initialize() {
 
 function askingTheQuestion() {
     if (currentQuestion >= questions.length) {
-        //Endgame 
-        document.getElementById('endGameScreen').style = '';
-        document.getElementById('startGame').style = 'display: none';
-        document.getElementById('allQuestions').innerHTML = questions.length;
-        document.getElementById('rightAnsweredQuestions').innerHTML = rightAnsweredQuestions;
-
-
+        endGame();
     } else {
-
-
-        let question = questions[currentQuestion];
-
-        document.getElementById('currentQuestionNumber').innerHTML = currentQuestion + 1;
-
-        document.getElementById('theQuestion').innerHTML = `Frage : ${question['question']}`;
-
-        document.getElementById('answer1').innerHTML = question['option1'];
-
-        document.getElementById('answer2').innerHTML = question['option2'];
-
-        document.getElementById('answer3').innerHTML = question['option3'];
-
-        document.getElementById('answer4').innerHTML = question['option4'];
+        normalProgress();
     }
 }
+function endGame() {
+
+    document.getElementById('endGameScreen').style = '';
+    document.getElementById('startGame').style = 'display: none';
+    document.getElementById('allQuestions').innerHTML = questions.length;
+    document.getElementById('rightAnsweredQuestions').innerHTML = rightAnsweredQuestions;
+    endingSound.play();
+}
+
+function normalProgress() {
+    let progressPercent = currentQuestion / questions.length;
+    progressPercent = Math.round(progressPercent * 100);
+    // console.log('progress', progressPercent);
+    let question = questions[currentQuestion];
+    document.getElementById('progressBar').innerHTML = `
+        ${progressPercent}%`;
+    document.getElementById('progressBar').style.width = `
+        ${progressPercent}%`;
+    document.getElementById('currentQuestionNumber').innerHTML = currentQuestion + 1;
+    document.getElementById('theQuestion').innerHTML = `Frage : ${question['question']}`;
+    document.getElementById('answer1').innerHTML = question['option1'];
+    document.getElementById('answer2').innerHTML = question['option2'];
+    document.getElementById('answer3').innerHTML = question['option3'];
+    document.getElementById('answer4').innerHTML = question['option4'];
+}
+
 function clickingOnAnswer(answer) {
     let question = questions[currentQuestion];
     // console.log('Selected answer is', x);
     let selectedQuestionEnding = answer.slice(-1);
     // console.log('selected Question is', selectedQuestionEnding);
     // console.log('the right Answer is', question['rightAnswer']);
-
     let idOfRightAnswer = `answer${question['rightAnswer']}`;
-
     if (selectedQuestionEnding == question['rightAnswer']) {
         // console.log('Richtige Antwort!');
         document.getElementById(answer).parentNode.classList.add('bg-success');
+        rightAnswerSound.play();
         rightAnsweredQuestions++;
     } else {
         // console.log('falsche Antwort!');
         document.getElementById(answer).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+        wrongAnswerSound.play();
     }
     document.getElementById('nextButton').disabled = false;
 }
@@ -144,8 +153,6 @@ function nextQuestion() {
     document.getElementById('nextButton').disabled = true;
     resetAddedClasses();
     askingTheQuestion();
-
-
 }
 
 function resetAddedClasses() {
@@ -159,5 +166,13 @@ function resetAddedClasses() {
     document.getElementById('answer4').parentNode.classList.remove('bg-danger');
 }
 
+
+function restart() {
+    rightAnsweredQuestions = 0;
+    currentQuestion = 0;
+    document.getElementById('endGameScreen').style = 'display: none';
+    document.getElementById('startGame').style = '';
+    initialize();
+}
 
 
