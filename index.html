@@ -48,32 +48,37 @@
                 </div>
             </div>
             <div class="card-body">
-                <h5 class="card-title" id="theQuestion">Frage : </h5>
-                <div class="card mb-2 cardHoverEffect">
-                    <div onclick="clickingOnAnswer('answer1')" id="answer1" class="card-body">
-                        Antwort 1
+                <div class=" displayTransparent" id="transparentOverlay">
+
+                    <div id="z-index" class="z-index d-none"></div>
+                    <h5 class="card-title" id="theQuestion">Frage : </h5>
+                    <div class="card mb-2 cardHoverEffect">
+                        <div onclick="clickingOnAnswer('answer1')" id="answer1" class="card-body">
+                            Antwort 1
+                        </div>
                     </div>
-                </div>
-                <div onclick="clickingOnAnswer('answer2')" class="card mb-2 cardHoverEffect">
-                    <div id="answer2" class="card-body">
-                        Antwort 2
+                    <div onclick="clickingOnAnswer('answer2')" class="card mb-2 cardHoverEffect">
+                        <div id="answer2" class="card-body">
+                            Antwort 2
+                        </div>
                     </div>
-                </div>
-                <div onclick="clickingOnAnswer('answer3')" class="card mb-2 cardHoverEffect">
-                    <div id="answer3" class="card-body">
-                        Antwort 3
+                    <div onclick="clickingOnAnswer('answer3')" class="card mb-2 cardHoverEffect">
+                        <div id="answer3" class="card-body">
+                            Antwort 3
+                        </div>
                     </div>
-                </div>
-                <div onclick="clickingOnAnswer('answer4')" class="card mb-2 cardHoverEffect">
-                    <div id="answer4" class="card-body">
-                        Antwort 4
+                    <div onclick="clickingOnAnswer('answer4')" class="card mb-2 cardHoverEffect">
+                        <div id="answer4" class="card-body">
+                            Antwort 4
+                        </div>
                     </div>
+
                 </div>
                 <div class="questionFooter">
                     <span><b id="currentQuestionNumber">1 </b>von <b id="remainingQuestions"> </b> Fragen
                     </span><button onclick="nextQuestion()" id="nextButton" type="button" class="btn btn-outline-dark"
-                        disabled>Nächste Frage</button>
-
+                        disabled>Nächste
+                        Frage</button>
                 </div>
             </div>
         </div>
