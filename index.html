@@ -19,14 +19,22 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body onload="initialize()">
+<body>
     <nav class="navbar bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">QuiZzZ-APP</span>
         </div>
     </nav>
-
-    <div class="bigContainer">
+    <div id="category" class="category">
+        <span> choose a category! </span>
+        <div class="buttonsDiv">
+            <button onclick="filteredGame('programming')" id="pragrammingButton"
+                class="pragrammingButton btn btn-outline-dark">Programming</button>
+        </div>
+        <button onclick="filteredGame('germanJokes')" id="germanJokesButton"
+            class="germanJokesbtn btn btn-outline-dark">deutsche Flachwitze & Memes</button>
+    </div>
+    <div id="bigContainer" class="bigContainer d-none">
         <div style="display:none;" id="endGameScreen" class="card cardWhole"> <span class="text-center">!!!!!!WOW!!!!!!
                 du hast es
                 geschafft Buddy ;)

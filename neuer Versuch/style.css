@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+}
+
+.card {
+    margin-top: 40px;
+    border-radius: 20px;
+
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+}
+
+.categories span {
+    font-size: 1.9em;
+    color: wheat;
+}
+
+.categories button {
+    margin: 20px;
+}
+
+.categories button:hover {
+    color: black;
+    background-color: white;
+}
+
+.card-body button:hover {
+    color: black;
+    background-color: white;
+
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: teal;
+    flex-direction: column;
+}
+
+.card {
+    width: 50vw;
+}
+
+footer {
+    width: 100%;
+
+}
+
+.card-body {
+    width: 100%;
+}

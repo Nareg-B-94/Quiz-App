@@ -4,7 +4,33 @@ body {
     background-color: rgb(27, 102, 102) !important;
 }
 
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
+
+.buttonsDiv {
+    display: flex;
+    flex-direction: row !important;
+}
+
+.category span {
+    margin: 25px;
+    font-size: 1.9em;
+    color: white;
+}
+
+#pragrammingButton {
+    margin: 20px;
+    background-color: tomato;
+}
+
+#germanJokesButton {
+    margin: 20px;
+    background-color: tomato;
+}
 
 .bigContainer {
     display: flex;
