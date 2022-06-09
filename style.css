@@ -11,6 +11,20 @@ body {
 
 }
 
+#startGame {
+    position: absolute;
+    top: 50px;
+
+
+    width: 40%;
+
+}
+
+/* .card-img-top {
+    width: 50% !important;
+    height: 7.9em;
+} */
+
 .buttonsDiv {
     display: flex;
     flex-direction: row !important;
@@ -36,6 +50,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 600px !important;
 
 }
 
@@ -58,6 +73,7 @@ body {
 
 .cardWhole {
     width: 60%;
+
 }
 
 .bg-success {
@@ -119,7 +135,20 @@ body {
 }
 
 @media(max-width: 1200px) {
-    .responsiveWidth {
-        width: 95%;
+    body {
+        height: 100vh;
     }
+
+    .category {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .responsiveWidth {
+        width: 80% !important;
+    }
+}
+
+.navbar {
+    display: none;
 }
